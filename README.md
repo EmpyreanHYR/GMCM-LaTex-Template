@@ -17,7 +17,7 @@
 
 安装包含 **XeLaTeX、BibTeX 和 latexmk** 的 TeX 发行版，并安装模板所需字体。macOS 可使用 MacTeX；Windows 可使用 TeX Live。
 
-模板沿用 `fontset=windows`，使用宋体、黑体、楷体、仿宋、隶书、Times New Roman、Arial 和 Courier New。字体名称与安装说明见 [fonts/README.md](fonts/README.md)。字体文件不随仓库分发。
+模板沿用 `fontset=windows`，使用宋体、黑体、楷体、仿宋、隶书、Times New Roman、Arial 和 Courier New。字体文件位于 `fonts/`，字体名称与安装说明见 [fonts/README.md](fonts/README.md)。
 
 ### 2. 获取模板
 
@@ -54,11 +54,8 @@ cd GMCM-LaTex-Template
 ├── figures/               # 封面资源及论文图片
 ├── code/                  # Python / MATLAB 示例程序
 ├── examples/              # 原模板示例，供查阅
-├── docs/
-│   ├── contest/           # 随原模板提供的比赛资料
-│   ├── licenses/          # 第三方许可文本
-│   └── ACKNOWLEDGEMENTS.md
-├── fonts/                 # 字体安装说明
+├── docs/contest/          # 比赛资料
+├── fonts/                 # 字体文件与安装说明
 ├── makefiles.sh           # macOS / Unix 编译脚本
 ├── makefiles.bat          # Windows 编译脚本
 └── 编译论文.command        # macOS 双击入口
@@ -87,6 +84,4 @@ cd GMCM-LaTex-Template
 
 题目、队号、正文提示、示例数据、图片、文献和程序均需按实际论文替换。
 
-## 来源
-
-原模板及移植内容的说明见 [模板来源与资源](docs/ACKNOWLEDGEMENTS.md)。随模板提供的比赛资料位于 [docs/contest](docs/contest/)。
+比赛资料位于 [docs/contest](docs/contest/)。

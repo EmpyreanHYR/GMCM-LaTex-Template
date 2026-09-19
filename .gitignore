@@ -31,8 +31,3 @@ Thumbs.db
 /example.pdf
 /example-color.pdf
 /examples/*.pdf
-
-# Fonts are installed locally; only installation instructions are published.
-/fonts/*
-!/fonts/README.md
-/fronts/
