@@ -1,0 +1,38 @@
+# OS files and local notes.
+.DS_Store
+Thumbs.db
+/.local/
+/BUILD-CHECK.md
+
+# LaTeX auxiliary files, including manually compiled examples.
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.loa
+*.lof
+*.log
+*.lol
+*.lot
+*.out
+*.run.xml
+*.synctex
+*.synctex.gz
+*.toc
+*.xdv
+
+# Only the known main-document PDFs are generated outputs.
+/GMCM-main.pdf
+/example.pdf
+/example-color.pdf
+/examples/*.pdf
+
+# Fonts are installed locally; only installation instructions are published.
+/fonts/*
+!/fonts/README.md
+/fronts/

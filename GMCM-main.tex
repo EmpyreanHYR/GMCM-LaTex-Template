@@ -1,0 +1,101 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX root = GMCM-main.tex
+% 主模板：examples/example-color.tex；功能与章节组织参考 CUMCM 模板。
+% natbib 已由 gmcmthesis 加载，须在文档类之前传递新增选项。
+\PassOptionsToPackage{sort&compress}{natbib}
+\documentclass[bwprint,fontset=windows]{gmcmthesis}
+
+% ==================== 保留 Paper 的版式 ====================
+% 字体、字号、页边距、行距、标题、图表标题、封面和页码由 gmcmthesis.cls 管理。
+% ctex、amsmath、amssymb、bm、graphicx、array、booktabs、tabularx、longtable、
+% multirow、enumitem、caption、xcolor、listings、natbib、hyperref 已由类加载。
+\hypersetup{hidelinks,pdfstartview=Fit,breaklinks=true}
+
+% ==================== example-color 原有功能 ====================
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{subfig} % 保留 \subfloat；不要同时加载 subcaption。
+\usepackage{siunitx}
+\usepackage{colortbl}
+\definecolor{color1}{rgb}{0.78,0.88,0.99}
+\definecolor{color2}{rgb}{0.36,0.62,0.84}
+\definecolor{color3}{rgb}{0.88,0.92,0.96}
+\definecolor{color4}{rgb}{0.96,0.97,0.98}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+
+% ==================== 从 CUMCM 合并的内容功能 ====================
+\usepackage{float}
+\usepackage[figuresright]{rotating}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{multicol}
+% 保留 Paper 的图片路径，尤其封面 logo.pdf、title.pdf 的 figures/。
+\graphicspath{{figures/}{texfile/figures/}{figure/}{pictures/}%
+  {picture/}{pic/}{pics/}{image/}{images/}}
+
+% 具名代码样式：仅对显式 style=Python / style=MATLAB 的代码生效，
+% 不覆盖 Paper 原有的 Matlab、Python 环境。
+\lstdefinestyle{GMCMCode}{
+  numbers=left,
+  numberstyle=\zihao{-5}\ttfamily,
+  numbersep=8pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  captionpos=t,
+  frame=lrtb,
+  breaklines=true,
+  columns=fixed,
+  basewidth=0.5em,
+  tabsize=4,
+  xleftmargin=2em,
+  basicstyle=\zihao{-5}\ttfamily\color{black}
+}
+\lstdefinestyle{Python}{
+  style=GMCMCode,
+  language=Python,
+  keywordstyle=\color{blue}\bfseries\itshape,
+  stringstyle=\color{magenta},
+  commentstyle=\color{red}
+}
+\lstdefinestyle{MATLAB}{
+  style=GMCMCode,
+  language=Matlab,
+  keywordstyle=\color{green!40!black}\bfseries\itshape,
+  stringstyle=\color{purple},
+  commentstyle=\color{gray}
+}
+
+% ==================== 论文信息：按实际参赛信息填写 ====================
+\title{全国研究生数学建模竞赛论文标题}
+\baominghao{\hspace{6em} 20260900001}
+\schoolname{\hspace{5.8em} 学校名称填写}
+\membera{\hspace{6em} 成员A}
+\memberb{\hspace{6em} 成员B}
+\memberc{\hspace{6em} 成员C}
+
+\begin{document}
+\maketitle
+\input{texfile/1abstract}
+\pagestyle{plain}
+
+% 默认从摘要进入正文；需要目录时再启用下面两行。
+% \maketoc
+% \clearpage
+
+\input{texfile/2ProblemRestatement}
+\input{texfile/3ProblemAnalysis}
+\input{texfile/4AssumptionAndSign}
+\input{texfile/5MakeModel}
+\input{texfile/6ErrorAnalysis}
+\input{texfile/7ModelEvaluation}
+\input{texfile/8Reference}
+\input{texfile/9Appendix}
+\end{document}

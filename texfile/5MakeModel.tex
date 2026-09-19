@@ -1,0 +1,106 @@
+% !TeX root = ../GMCM-main.tex
+\section{模型的建立与求解}
+本节保留公式、图表、算法和引用的用法示例，具体模型与数据应替换为实际研究内容。
+各问题统一按“模型建立、求解设置、结果、验证与解释”组织；以下填写提示不代表已经完成相应计算或检验。
+
+\subsection{数据的预处理}
+\begin{enumerate}
+  \item 描述数据来源、变量含义与单位，明确缺失值和异常值的处理依据。
+  \item 说明归一化、特征提取或样本划分方法，给出处理后的数据规模。
+\end{enumerate}
+单位排版示例：长度为 \SI{120}{\centi\metre}，时间为 \SI{10}{\second}。
+
+\subsection{问题一的模型建立与求解}
+\subsubsection{模型建立}
+此处定义问题一的变量、目标与约束，说明模型假设及其与实际问题的对应关系。
+
+以线性拟合为排版示例，令预测值为
+\begin{equation}
+  \hat{y}_i = a x_i + b,\qquad i=1,2,\ldots,n.
+  \label{eq:prediction}
+\end{equation}
+相应的最小二乘目标可写为
+\begin{equation}
+  \min_{a,b}\sum_{i=1}^{n}\bigl(y_i-a x_i-b\bigr)^2.
+  \label{eq:least-squares}
+\end{equation}
+式~\eqref{eq:prediction} 和式~\eqref{eq:least-squares} 展示公式编号及交叉引用。
+
+\subsubsection{求解设置}
+此处说明计算所用的数据范围、算法、软件版本、参数取值及其依据。若涉及迭代或随机计算，还需记录初始条件、停止准则、数值容差或随机种子，以便复现。
+
+算法~\ref{alg:fit} 展示伪代码的输入、输出和计算步骤。
+\begin{algorithm}[htbp]
+  \caption{线性拟合示例}
+  \label{alg:fit}
+  \begin{algorithmic}[1]
+    \Require 数据点 $\{(x_i,y_i)\}_{i=1}^{n}$，且 $x_i$ 不全相同
+    \Ensure 拟合系数 $a,b$ 及预测值 $\hat{y}_i$
+    \State 构造设计矩阵 $X=[\bm{x},\bm{1}]$ 和观测向量 $\bm{y}$
+    \State 使用 QR 分解求解最小二乘问题 $X\bm{\beta}\approx\bm{y}$
+    \State 从 $\bm{\beta}$ 读取 $a,b$
+    \For{$i=1,2,\ldots,n$}
+      \State $\hat{y}_i\gets a x_i+b$
+    \EndFor
+    \State \Return $a,b,\{\hat{y}_i\}_{i=1}^{n}$
+  \end{algorithmic}
+\end{algorithm}
+
+\subsubsection{结果}
+此处给出问题一的核心计算结果、单位和对应条件，结合图表直接回答题目，并区分计算结果与据此得到的结论。
+
+表~\ref{tab:sample} 为三线表示例，数值仅用于演示排版。
+\begin{table}[htbp]
+  \centering
+  \caption{示例数据（非实际计算结果）}
+  \label{tab:sample}
+  \renewcommand{\arraystretch}{1.2}
+  % 与符号表统一：三条黑色横线、无竖线，仅表头使用浅色背景。
+  \begin{tabular}{ccc}
+    \toprule
+    \rowcolor{color3!45}\textbf{样本编号} & \textbf{输入} $x_i$ & \textbf{观测值} $y_i$ \\
+    \midrule
+    1 & 1 & 3 \\
+    2 & 2 & 5 \\
+    3 & 3 & 7 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+图~\ref{fig:demo} 沿用 Paper 的示例图片及子图写法。
+\begin{figure}[htbp]
+  \centering
+  \subfloat[示例图一]{\includegraphics[width=0.40\textwidth]{image1}}\qquad
+  \subfloat[示例图二]{\includegraphics[width=0.40\textwidth]{image2}}
+  \caption{并列子图示例（非实际研究结果）}
+  \label{fig:demo}
+\end{figure}
+
+\subsubsection{验证与解释}
+此处根据问题性质选择验证方法，例如独立数据检验、基准方法比较、约束可行性检查或残差分析。说明检验依据、评价指标和实际检验结果，解释这些证据如何支持本问结论，同时交代结果的适用条件与局限。
+
+\subsection{问题二的模型建立与求解}
+\subsubsection{模型建立}
+此处定义问题二的变量、目标函数和约束条件。若沿用问题一的模型，应说明保留的部分、需要调整的假设以及新增条件。
+
+\subsubsection{求解设置}
+此处说明问题二采用的数据、求解算法、参数及计算精度；复用前文设置时明确引用，只展开差异。根据实际方法补充初值、停止准则、随机种子或计算资源。
+
+\subsubsection{结果}
+此处给出问题二的核心结果及对应条件，并直接回答题目。若比较多个方案，统一比较条件、指标和单位，说明差异的大小及其实际含义。
+
+\subsubsection{验证与解释}
+此处选择与问题二目标相符的检验，例如与基准方案比较、检查约束是否满足，或在不同数据与条件下复核结果。报告检验结果，解释方案有效的原因、可能失效的情形及结论适用范围。
+
+\subsection{问题三的模型建立与求解}
+\subsubsection{模型建立}
+此处说明问题三的研究目标、变量关系和约束条件，明确与前两问的联系；若引入新模型或推广原模型，应给出相应依据和适用假设。
+
+\subsubsection{求解设置}
+此处说明数据或场景的选取依据、算法与参数设置，以及必要的实验或计算步骤。需要重复实验时，说明重复次数和结果汇总方法。
+
+\subsubsection{结果}
+此处按题目要求汇总问题三的主要结果，给出量化指标、单位和适用条件。若结果随场景变化，应说明各场景的结论及其差异。
+
+\subsubsection{验证与解释}
+此处说明如何检验问题三的结果，并报告实际验证证据。结合模型机制解释主要现象，讨论结果对数据、参数或场景变化的依赖，以及结论能够推广到何种范围。
