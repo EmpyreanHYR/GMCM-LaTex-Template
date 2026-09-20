@@ -1,0 +1,28 @@
+% !TeX root = ../GMCM-main.tex
+\section{模型的假设}
+根据实际问题补充合理假设，并说明假设的依据及影响：
+\begin{enumerate}
+  \item 假设一：待填写。
+  \item 假设二：待填写。
+  \item 假设三：待填写。
+\end{enumerate}
+
+% 符号表与标题一起排版，避免浮动到下一节之后。
+\Needspace{10\baselineskip}
+\section{符号说明}
+% 标准三线表：仅顶线、表头分隔线、底线，不加竖线和逐行边框。
+% 浅色只用于表头背景；列格式和行高只在本表内生效。
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{0.9\textwidth}{>{\centering\arraybackslash}p{0.15\textwidth}X}
+    \toprule
+    \rowcolor{color3!45}\textbf{符号} & \textbf{意义} \\
+    \midrule
+    $x_i$ & 第 $i$ 个输入变量（示例） \\
+    $y_i$ & 第 $i$ 个观测值（示例） \\
+    $\hat{y}_i$ & 第 $i$ 个预测值（示例） \\
+    $n$ & 样本数量（示例） \\
+    \bottomrule
+  \end{tabularx}
+\end{table}

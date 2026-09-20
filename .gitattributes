@@ -1,0 +1,12 @@
+* text=auto
+*.tex text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.command text eol=lf
+*.bat text eol=crlf
+*.pdf binary
+*.png binary
+*.eps binary
+*.doc binary
+*.docx binary
+*.ttf binary

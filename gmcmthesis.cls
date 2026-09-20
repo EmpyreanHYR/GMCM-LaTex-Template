@@ -187,7 +187,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \addcontentsline{toc}{section}{\refname}
     }
 % 超链接 hyperref 的设置
-\RequirePackage{hyperref}
+\RequirePackage[hyperfootnotes=true,hyperindex=true]{hyperref}
 %% Document Layout
 % 页面布局
 \geometry{top=30.0mm,bottom=25.0mm,left=22.5mm,right=22.5mm,headsep=8mm}
@@ -254,6 +254,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   \fi
 \fi
 
+% 本类有意覆盖 ctex 的默认字体以保持原版式；仅将这段配置的
+% “字体族重定义”记录为 Info，缺字体、缺字等其他诊断保持原级别。
+\ExplSyntaxOn
+\msg_redirect_name:nnn { xeCJK } { CJKfamily-redef } { info }
+\ExplSyntaxOff
 \ifmcm@mac
   \setCJKmainfont[
        UprightFont = * Light,
@@ -295,6 +300,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \fi
   \fi
 \fi
+
+\ExplSyntaxOn
+\msg_redirect_name:nnn { xeCJK } { CJKfamily-redef } { warning }
+\ExplSyntaxOff
 
 % \ifmcm@windows
 %   \setCJKfamilyfont{xw}{STXinwei}
@@ -376,8 +385,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \AtBeginDocument{%
 	 \hypersetup{%
 		% % unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
-		 hyperfootnotes=true,
-		 hyperindex=true,
 		 colorlinks=true,
 		 bookmarksnumbered=true,
 		 bookmarksopen=true,
@@ -456,6 +463,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
    \Xhline{1.2pt}
   \end{tabularx}
 
+  \fi % 结束封面条件；摘要标题页在两种模式下都生成。
 	\makenametitle
 	}
 
@@ -488,6 +496,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \def\@seccntformat#1{\csname the#1\endcsname\ \ }
 % 节标题格式, 居中, 使用\chinese命令修改计数器, \kern 使得数字和内容不至于太远
 \newcommand{\thinskip}{\hskip 0.05em\relax}
+% 页面保留编号间距，PDF 书签只使用纯文本编号。
+\pdfstringdefDisableCommands{\def\thinskip{}}
 % \renewcommand\thesection{\arabic{section}\thinskip.}
 \renewcommand\thesubsection{\arabic{section}\thinskip.\thinskip\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection\thinskip.\thinskip\arabic{subsubsection}}

@@ -1,0 +1,17 @@
+% !TeX root = ../GMCM-main.tex
+\clearpage
+\begin{appendices}
+  % 不重置页码，沿用 Paper 的附录环境。
+  \section{代码程序}
+  \renewcommand{\thesubsection}{\Alph{section}\thinskip.\thinskip\arabic{subsection}}
+  下列程序改编自 CUMCM 的代码导入示例，仅用于展示外部源文件的排版。
+
+  \subsection{Python 源程序}
+  \lstinputlisting[style=Python,caption={三位数枚举示例}]{code/code_example.py}
+
+  \subsection{MATLAB 源程序}
+  \lstinputlisting[style=MATLAB,caption={等高线与梯度方向示例}]{code/code_example.m}
+
+  \section{支撑材料}
+  此处填写实际提交的程序、补充图表或其他支撑文件的名称及说明。
+\end{appendices}
