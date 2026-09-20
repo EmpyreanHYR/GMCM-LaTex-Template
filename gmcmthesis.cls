@@ -480,12 +480,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \vskip0.6cm%
 
 \begin{center}
-\begin{tabularx}{.95\textwidth}{@{}lX@{}}
-{\zihao{-2}\lishu 题\quad 目: } &\hfill\zihao{3}\heiti \@title\hfill\null\\
-\cline{2-2}
-\end{tabularx}
+    {\zihao{-2}\lishu 题\quad 目：}
+    \underline{
+        \makebox[0.75\textwidth][c]{
+            \zihao{3}\heiti \@title
+        }
+    }
 \end{center}
-
 \vskip0.2cm%
 }
 
