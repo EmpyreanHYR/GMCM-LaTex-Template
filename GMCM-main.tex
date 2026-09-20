@@ -12,6 +12,10 @@
 % multirow、enumitem、caption、xcolor、listings、natbib、hyperref 已由类加载。
 \hypersetup{hidelinks,pdfstartview=Fit,breaklinks=true}
 
+% ==================== 目录名称 ====================
+\renewcommand{\listfigurename}{图目录}
+\renewcommand{\listtablename}{表目录}
+
 % ==================== example-color 原有功能 ====================
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{subfig} % 保留 \subfloat；不要同时加载 subcaption。
@@ -86,9 +90,21 @@
 \input{texfile/1abstract}
 \pagestyle{plain}
 
-% 默认从摘要进入正文；需要目录时再启用下面两行。
-% \maketoc
-% \clearpage
+% ==================== 目录 ====================
+\maketoc
+\clearpage
+
+% ==================== 图目录 ====================
+\phantomsection
+\addcontentsline{toc}{section}{图目录}
+\listoffigures
+\clearpage
+
+% ==================== 表目录 ====================
+\phantomsection
+\addcontentsline{toc}{section}{表目录}
+\listoftables
+\clearpage
 
 \input{texfile/2ProblemRestatement}
 \input{texfile/3ProblemAnalysis}
