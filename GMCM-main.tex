@@ -10,7 +10,18 @@
 % 字体、字号、页边距、行距、标题、图表标题、封面和页码由 gmcmthesis.cls 管理。
 % ctex、amsmath、amssymb、bm、graphicx、array、booktabs、tabularx、longtable、
 % multirow、enumitem、caption、xcolor、listings、natbib、hyperref 已由类加载。
-\hypersetup{hidelinks,pdfstartview=Fit,breaklinks=true}
+\hypersetup{
+    colorlinks=false,          % 【关键】关闭彩色文字，改为黑色（隐形链接）
+    linkcolor=black,           % 内部链接颜色（目录、图表引用）
+    citecolor=black,           % 参考文献引用颜色
+    urlcolor=black,            % URL链接颜色
+    pdfstartview=Fit,          % PDF打开时的视图
+    breaklinks=true,           % 允许链接换行
+    % bookmarks=true,            % 生成PDF书签（左侧目录栏）
+    bookmarksnumbered=true,    % 书签带编号
+    hidelinks                  % 隐藏链接边框（双重保险）
+}
+
 
 % ==================== 目录名称 ====================
 \renewcommand{\listfigurename}{图目录}
@@ -77,6 +88,8 @@
   commentstyle=\color{gray}
 }
 
+\usepackage[capitalise,noabbrev]{cleveref}
+
 % ==================== 论文信息：按实际参赛信息填写 ====================
 \title{全国研究生数学建模竞赛论文标题}
 \baominghao{\hspace{6em} 20260900001}
@@ -86,6 +99,23 @@
 \memberc{\hspace{6em} 成员C}
 
 \begin{document}
+
+% 设置 cleveref 的中文标签
+\crefname{figure}{图}{图}
+\Crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\crefname{section}{节}{节}
+\Crefname{section}{节}{节}
+\crefname{subsection}{小节}{小节}
+\Crefname{subsection}{小节}{小节}
+\crefname{equation}{公式}{公式}
+\Crefname{equation}{公式}{公式}
+
+% 为算法环境设置 cleveref 标签
+\crefname{algorithm}{算法}{算法}
+\Crefname{algorithm}{算法}{算法}
+
 \maketitle
 \input{texfile/1abstract}
 \pagestyle{plain}
